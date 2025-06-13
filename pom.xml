@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>top.qc233</groupId>
+    <groupId>xyz.qc233</groupId>
     <artifactId>yhchat-spring-boot-starter</artifactId>
     <version>1.0.0</version>
     <name>yhchat-spring-boot-starter</name>
