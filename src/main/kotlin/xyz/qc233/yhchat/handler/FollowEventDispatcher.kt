@@ -26,6 +26,8 @@ class FollowEventDispatcher {
 
         for (handler in handlers) {
 
+            if (handler.userId != "" && handler.userId != event.userId) continue
+
             val params = handler.method.parameters // 包含所有参数（包括 instance）
             val argMap = mutableMapOf<KParameter, Any?>()
 

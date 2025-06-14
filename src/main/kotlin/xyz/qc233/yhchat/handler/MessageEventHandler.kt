@@ -14,4 +14,6 @@ data class MessageEventHandler(
     val filter: MessageEventFilter,
     val propagate: Boolean,
     val target: String,
+    val groupId: String,
+    val userId: String,
 )

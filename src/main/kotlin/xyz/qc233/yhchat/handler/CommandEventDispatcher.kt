@@ -27,8 +27,10 @@ class CommandEventDispatcher {
 
         for (handler in handlers) {
             if (event.message.commandId != handler.value) continue
+            if (event.sender.senderId != handler.userId) continue
             if (handler.target != SenderTarget.ALL) {
                 if (event.chat.chatType != handler.target) continue
+                if (event.chat.chatType == "group" && handler.groupId != "" && handler.groupId!=event.chat.chatId) continue
             }
 
             val params = handler.method.parameters // 包含所有参数（包括 instance）

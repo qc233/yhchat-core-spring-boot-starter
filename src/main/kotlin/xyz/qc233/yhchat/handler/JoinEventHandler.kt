@@ -7,6 +7,8 @@ class JoinEventHandler(
     val method: KFunction<*>,
     val priority: Int,
     val propagate: Boolean,
+    val groupId: String,
+    val userId: String
 ) {
 
 }

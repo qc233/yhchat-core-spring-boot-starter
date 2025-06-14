@@ -5,4 +5,6 @@ package xyz.qc233.yhchat.annotation
 annotation class OnJoin(
     val priority: Int = 0,
     val propagate: Boolean = true,
+    val groupId: String = "",
+    val userId: String = ""
 )

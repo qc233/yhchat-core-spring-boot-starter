@@ -3,6 +3,7 @@ package xyz.qc233.yhchat.handler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import xyz.qc233.yhchat.event.MenuEvent
+import xyz.qc233.yhchat.filter.SenderTarget
 import xyz.qc233.yhchat.sneder.MessageSender
 import kotlin.reflect.KParameter
 
@@ -28,6 +29,13 @@ class MenuEventDispatcher {
             if (handler.id != "" && event.menuId != handler.id) continue
             if (handler.type != -1 && event.menuType != handler.type) continue
             if (handler.action != -1 && event.menuAction != handler.action) continue
+
+            if (handler.userId!="" && handler.userId!=event.sender.senderId) continue
+            if (handler.target != SenderTarget.ALL) {
+                if (event.chat.chatType != handler.target) continue
+                if (event.chat.chatType == "group" && handler.groupId != "" && event.chat.chatId != handler.groupId) continue
+            }
+
             val params = handler.method.parameters // 包含所有参数（包括 instance）
             val argMap = mutableMapOf<KParameter, Any?>()
 

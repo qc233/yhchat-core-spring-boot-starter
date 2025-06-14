@@ -29,8 +29,10 @@ class MessageEventDispatcher {
             if (event.message.contentType!="text") return
 
             if (!handler.filter.filter(event, handler.value)) continue
+            if (handler.userId!="" && handler.userId!=event.sender.senderId) continue
             if (handler.target != SenderTarget.ALL) {
                 if (event.chat.chatType != handler.target) continue
+                if (event.chat.chatType == "group" && handler.groupId != "" && event.chat.chatId != handler.groupId) continue
             }
             val params = handler.method.parameters // 包含所有参数（包括 instance）
             val argMap = mutableMapOf<KParameter, Any?>()

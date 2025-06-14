@@ -10,6 +10,9 @@ class MenuEventHandler(
     val method: KFunction<*>,
     val priority: Int,
     val propagate: Boolean,
+    val target: String,
+    val groupId: String,
+    val userId: String
 ) {
 
 }

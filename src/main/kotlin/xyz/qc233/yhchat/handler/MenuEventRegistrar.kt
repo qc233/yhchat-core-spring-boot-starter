@@ -31,6 +31,9 @@ class MenuEventRegistrar(
                 id = annotation.id,
                 type = annotation.type,
                 action = annotation.action,
+                target = annotation.target,
+                groupId = annotation.groupId,
+                userId = annotation.userId,
             )
 
             // 注册到分发器

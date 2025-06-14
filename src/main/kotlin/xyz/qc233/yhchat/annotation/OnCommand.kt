@@ -9,4 +9,6 @@ annotation class OnCommand(
     val propagate: Boolean = true,
     val type: MessageFilterType= MessageFilterType.Equal,
     val target: String = SenderTarget.ALL,
+    val groupId: String = "",
+    val userId: String = ""
 )

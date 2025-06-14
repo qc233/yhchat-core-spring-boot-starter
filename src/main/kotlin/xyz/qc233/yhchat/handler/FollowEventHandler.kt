@@ -7,6 +7,7 @@ class FollowEventHandler(
     val method: KFunction<*>,
     val priority: Int,
     val propagate: Boolean,
+    val userId: String,
 ) {
 
 }

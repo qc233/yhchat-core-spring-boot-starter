@@ -28,6 +28,8 @@ class LeaveEventRegistrar(
                 method = func,
                 priority = annotation.priority,
                 propagate = annotation.propagate,
+                groupId = annotation.groupId,
+                userId = annotation.userId,
             )
 
             // 注册到分发器

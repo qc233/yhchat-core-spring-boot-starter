@@ -31,6 +31,8 @@ class CommandEventRegistrar(
                 priority = annotation.priority,
                 propagate = annotation.propagate,
                 target = annotation.target,
+                groupId = annotation.groupId,
+                userId = annotation.userId,
             )
 
             // 注册到分发器

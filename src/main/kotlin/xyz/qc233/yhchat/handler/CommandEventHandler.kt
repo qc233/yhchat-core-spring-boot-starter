@@ -11,6 +11,8 @@ class CommandEventHandler(
     val priority: Int,
     val propagate: Boolean,
     val target: String,
+    val groupId: String,
+    val userId: String
 ) {
 
 }

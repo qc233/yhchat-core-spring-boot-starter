@@ -5,4 +5,5 @@ package xyz.qc233.yhchat.annotation
 annotation class OnFollow(
     val priority: Int = 0,
     val propagate: Boolean = true,
+    val userId: String = "",
 )

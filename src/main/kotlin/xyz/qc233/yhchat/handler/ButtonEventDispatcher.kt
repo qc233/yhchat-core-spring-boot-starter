@@ -3,6 +3,7 @@ package xyz.qc233.yhchat.handler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import xyz.qc233.yhchat.event.ButtonEvent
+import xyz.qc233.yhchat.filter.SenderTarget
 import xyz.qc233.yhchat.sneder.MessageSender
 import kotlin.reflect.KParameter
 
@@ -25,6 +26,12 @@ class ButtonEventDispatcher {
         val handlers = handlerMap["BUTTON_EVENT"] ?: return
 
         for (handler in handlers) {
+
+            if (handler.userId!="" && handler.userId!=event.sender.senderId) continue
+            if (handler.target != SenderTarget.ALL) {
+                if (event.chat.chatType != handler.target) continue
+                if (event.chat.chatType == "group" && handler.groupId != "" && event.chat.chatId != handler.groupId) continue
+            }
             if (event.value != handler.value) continue
             val params = handler.method.parameters // 包含所有参数（包括 instance）
             val argMap = mutableMapOf<KParameter, Any?>()

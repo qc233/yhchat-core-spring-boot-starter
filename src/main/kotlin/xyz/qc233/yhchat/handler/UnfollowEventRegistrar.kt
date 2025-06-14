@@ -28,6 +28,7 @@ class UnfollowEventRegistrar(
                 method = func,
                 priority = annotation.priority,
                 propagate = annotation.propagate,
+                userId = annotation.userId,
             )
 
             // 注册到分发器

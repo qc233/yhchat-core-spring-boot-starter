@@ -28,7 +28,10 @@ class ButtonEventRegistrar(
                 method = func,
                 priority = annotation.priority,
                 propagate = annotation.propagate,
-                value = annotation.value
+                value = annotation.value,
+                target = annotation.target,
+                groupId = annotation.groupId,
+                userId = annotation.userId,
             )
 
             // 注册到分发器
